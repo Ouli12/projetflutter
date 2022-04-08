@@ -4,26 +4,18 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class Message {
   late String idFrom;
   late String idTo;
-  late String timestamp;
   late String content;
-
-  //type: 0 =text, 1 =  image
-  late int type;
 
   Message(
       {required this.idFrom,
         required this.idTo,
-        required this.timestamp,
-        required this.content,
-        required this.type});
+        required this.content});
 
   Map<String, dynamic> toHashMap() {
     return {
       'idFrom': idFrom,
       'idTo': idTo,
-      'timestamp': timestamp,
       'content': content,
-      'type': type
     };
   }
 
@@ -31,9 +23,7 @@ class Message {
     return Message(
         idFrom: data['idFrom'],
         idTo: data['idTo'],
-        timestamp: data['timestamp'],
-        content: data['content'],
-        type: data['type']
+        content: data['content']
     );
   }
 }
